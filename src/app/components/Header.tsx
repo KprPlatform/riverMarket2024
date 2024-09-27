@@ -21,7 +21,7 @@ export const Header = ({
 
   return (
     <header className='w-full  bg-white border-b border-solid border-[#e6e5e6]'>
-      <div className='max-w-[1920px] min-w-[720px] mx-auto h-[71px] w-full flex md:justify-center items-center  p-4'>
+      <div className='md:max-w-[1920px] md:min-w-[720px] mx-auto h-[71px] w-full flex md:justify-center items-center  p-4'>
         <div className='w-[85px] h-[35px] flex-1'>
           <Image
             className='w-full h-full object-contain'

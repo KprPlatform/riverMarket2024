@@ -20,7 +20,7 @@ export default function Home() {
         visionRef={visionRef}
         offlineRef={offlineRef}
       />
-      <main className=''>
+      <main className='w-full px-[7.29%] md:px-[140px]'>
         <IntroSection />
         <section ref={aboutRef}></section>
         <section ref={storyRef}></section>
