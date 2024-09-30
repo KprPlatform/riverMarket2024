@@ -1,7 +1,8 @@
 import React from 'react';
 import { ImageCardView } from './card/ImageCardView';
 import Title from './text/Title';
-
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/swiper-bundle.css';
 export const StorySection = () => {
   const cards = [
     {
@@ -44,7 +45,24 @@ export const StorySection = () => {
   return (
     <div className='container mx-auto px-4'>
       <Title title='리버 스토리' />
-      <div className='grid grid-flow-row grid-cols-1 md:grid-cols-3 gap-6'>
+      {/* 모바일 - 슬라이드로 노출 */}
+      <div className='block md:hidden '>
+        <Swiper slidesPerView={1} spaceBetween={20} autoplay loop>
+          {cards.map((card, idx) => (
+            <SwiperSlide key={idx}>
+              <ImageCardView
+                key={idx}
+                imageSrc={card.imageSrc}
+                title={card.title}
+                content={card.content}
+                // description={card.description}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+      {/* PC - 그리드로 노출 */}
+      <div className='hidden md:grid grid-flow-row grid-cols-1 md:grid-cols-3 gap-6'>
         {cards.map((card, idx) => (
           <ImageCardView
             key={idx}
@@ -52,7 +70,7 @@ export const StorySection = () => {
             title={card.title}
             content={card.content}
             // description={card.description}
-          ></ImageCardView>
+          />
         ))}
       </div>
     </div>

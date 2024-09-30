@@ -6,7 +6,7 @@ export const IntroSection = ({}): JSX.Element => {
 
   return (
     <section className='w-full  bg-white'>
-      <div className='max-w-[1920px] min-w-[720px] mx-auto w-full flex flex-col md:flex-row md:justify-between p-4 gap-4'>
+      <div className='max-w-sm md:max-w-[1920px] md:min-w-[720px] mx-auto w-full flex flex-col md:flex-row md:justify-between p-4 gap-4'>
         {/* 좌측 날개 */}
         <div className='pt-[8%]'>
           <div className=" [-webkit-text-stroke:1px_#000000] [font-family:'Noto_Sans_KR',Helvetica] font-bold text-white text-[40px] md:text-[78px] tracking-[0] leading-[56px] md:leading-[109.2px]">

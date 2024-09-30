@@ -14,7 +14,7 @@ export const ImageCardView: React.FC<ImageCardViewProps> = ({
   content,
 }) => {
   return (
-    <div className='max-w-sm rounded overflow-hidden shadow-lg'>
+    <div className='max-w-sm rounded overflow-hidden shadow border-b border-gray-200 m-1'>
       {/* 이미지 영역 */}
       <img className='w-full' src={imageSrc} alt={title} />
 

@@ -13,7 +13,7 @@ export default function Home() {
   const offlineRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div className='bg-white '>
+    <div className=' bg-white '>
       <Header
         aboutRef={aboutRef}
         storyRef={storyRef}
