@@ -28,7 +28,7 @@ export const Header = ({
             alt='Layer'
             width={85}
             height={36}
-            src='/images/layer-1.svg'
+            src='/images/header_logo.svg'
           />
         </div>
         <nav className='hidden md:flex space-x-8 flex-1 m-3'>

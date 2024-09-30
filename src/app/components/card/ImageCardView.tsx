@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 interface ImageCardViewProps {
@@ -14,9 +15,15 @@ export const ImageCardView: React.FC<ImageCardViewProps> = ({
   content,
 }) => {
   return (
-    <div className='max-w-sm rounded overflow-hidden shadow border-b border-gray-200 m-1'>
+    <div className='max-w-sm rounded overflow-hidden shadow-md border-b border-gray-200 m-1'>
       {/* 이미지 영역 */}
-      <img className='w-full' src={imageSrc} alt={title} />
+      <Image
+        className='w-full'
+        src={imageSrc}
+        alt={title}
+        width={520}
+        height={379}
+      />
 
       {/* 하단 내용 */}
       <div className='px-6 py-4'>

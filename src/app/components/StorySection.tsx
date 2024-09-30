@@ -6,7 +6,7 @@ import 'swiper/swiper-bundle.css';
 export const StorySection = () => {
   const cards = [
     {
-      imageSrc: 'images/01_story_01.png',
+      imageSrc: '/images/01_story_01.png',
       title: '강을 닮다',
       content: [
         '저마다 다른 사연들이 만나 서로를 품는 강이 되었습니다.',
@@ -17,7 +17,7 @@ export const StorySection = () => {
       description: null,
     },
     {
-      imageSrc: 'images/01_story_02.png',
+      imageSrc: '/images/01_story_02.png',
       title: '삶을 닮다',
       content: [
         '꿈꾸던 날에 다가간 행복,',
@@ -30,7 +30,7 @@ export const StorySection = () => {
       description: '',
     },
     {
-      imageSrc: 'images/01_story_03.png',
+      imageSrc: '/images/01_story_03.png',
       title: '꿈에 닿다',
       content: [
         '저마다 다른 사연들이 만나 서로를 품는 강이 되었습니다.',
@@ -43,7 +43,7 @@ export const StorySection = () => {
   ];
 
   return (
-    <div className='container mx-auto px-4'>
+    <div className='container mx-auto px-4 mt-32 md:mt-48'>
       <Title title='리버 스토리' />
       {/* 모바일 - 슬라이드로 노출 */}
       <div className='block md:hidden '>
