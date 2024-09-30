@@ -3,6 +3,7 @@ import { useRef } from 'react';
 
 import { Header } from './components/Header';
 import { IntroSection } from './components/IntroSection';
+import { StorySection } from './components/StorySection';
 
 export default function Home() {
   const aboutRef = useRef<HTMLDivElement>(null);
@@ -22,7 +23,9 @@ export default function Home() {
       />
       <main className='w-full px-[7.29%] md:px-[140px]'>
         <IntroSection />
-        <section ref={aboutRef}></section>
+        <section ref={aboutRef}>
+          <StorySection />
+        </section>
         <section ref={storyRef}></section>
         <section ref={ciRef}></section>
         <section ref={visionRef}></section>

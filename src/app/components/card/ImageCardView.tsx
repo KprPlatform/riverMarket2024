@@ -1,0 +1,44 @@
+import React from 'react';
+
+interface ImageCardViewProps {
+  imageSrc: string;
+  title: string;
+  content: string[];
+  description?: string;
+}
+
+export const ImageCardView: React.FC<ImageCardViewProps> = ({
+  imageSrc,
+  title,
+  description,
+  content,
+}) => {
+  return (
+    <div className='max-w-sm rounded overflow-hidden shadow-lg'>
+      {/* 이미지 영역 */}
+      <img className='w-full' src={imageSrc} alt={title} />
+
+      {/* 하단 내용 */}
+      <div className='px-6 py-4'>
+        {/* 제목 */}
+        <div className='font-bold text-xl mb-2'>{title}</div>
+
+        {/* 본문 */}
+        <p className='text-gray-700 text-base'>
+          {Array.isArray(content)
+            ? content.map((line, index) => (
+                <React.Fragment key={index}>
+                  {line}
+                  <br />
+                </React.Fragment>
+              ))
+            : content}
+        </p>
+        {/* 선택적 디스크립션 */}
+        {description && (
+          <p className='text-gray-600 text-sm mt-2'>{description}</p>
+        )}
+      </div>
+    </div>
+  );
+};
