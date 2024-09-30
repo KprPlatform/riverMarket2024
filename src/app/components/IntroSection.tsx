@@ -29,7 +29,7 @@ export const IntroSection = ({}): JSX.Element => {
         </div>
 
         {/* 우측 날개 */}
-        <div className="pt-[20%] md:pt-[27.7%] font-normal text-black text-sm md:text-xl tracking-[-0.60px] md:leading-5  [font-family:'Noto_Sans_KR',Helvetica]">
+        <div className="pt-[15%] md:pt-[27.7%] font-normal text-black text-sm md:text-xl tracking-[-0.60px] md:leading-5  [font-family:'Noto_Sans_KR',Helvetica]">
           <span className='tracking-[-0.12px] md:leading-[30px]'>
             문호리 리버마켓은 2014년 양평에서 시작된 플리마켓으로,
             <br />
@@ -55,7 +55,13 @@ export const IntroSection = ({}): JSX.Element => {
           <span className='tracking-[-0.12px] leading-[30px]'></span>
         </div>
       </div>
-      <div className=' w-[1920px] h-[512px] top-[690px] left-[140px]'>
+
+      {/* 배너 */}
+      {/* 임시 이미지 */}
+      <div>
+        <img src='images/00_tmp_benner.jpg'></img>
+      </div>
+      {/* <div className=' w-[1920px] h-[512px] top-[690px] left-[140px]'>
         <img
           className=' w-60 h-[432px] top-0 left-[560px]'
           alt='Image'
@@ -91,7 +97,7 @@ export const IntroSection = ({}): JSX.Element => {
           alt='Image'
           src='/images/image-17914-1.png'
         />
-      </div>
+      </div> */}
     </section>
   );
 };
