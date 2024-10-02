@@ -1,6 +1,7 @@
 import React from 'react';
 import Title from './text/Title';
 import { TagImageCardView } from './card/TagImageCardView';
+import { Size } from '@/types/types';
 
 const CiSection = () => {
   const cards = [
@@ -16,6 +17,7 @@ const CiSection = () => {
           <strong> 마음의 표현</strong>입니다.
         </>
       ),
+      size: Size.Small,
     },
     {
       tag: '#상징',
@@ -32,31 +34,37 @@ const CiSection = () => {
           그대로 담아 표현하였습니다.
         </>
       ),
+      size: Size.Small,
     },
     {
       tag: '#위버 이야기',
       imageSrc: '/images/02_ci_03.png',
+      mobileImageSrc: '/images/02_mo_ci_03.png',
       description: (
         <>
           리버마켓은 &apos;위버&apos;와 함께 만들어 갑니다.
           <br />
           <strong>강을 닮은 우리, 바로 위버</strong>입니다.
           <br />
+          <br />
           <strong>위버의 이름에 걸맞은 좋은 상품만을 판매하겠습니다.</strong>
         </>
       ),
+      size: Size.Large,
     },
   ];
   return (
     <div className='container mx-auto px-4 mt-32 md:mt-48'>
       <Title title='리버 CI' />
-      <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
+      <div className='flex flex-wrap justify-center items-center gap-6'>
         {cards.map((card, idx) => (
           <TagImageCardView
             key={idx}
             tag={card.tag}
             imageSrc={card.imageSrc}
+            mobileImageSrc={card.mobileImageSrc}
             description={card.description}
+            size={card.size}
           />
         ))}
       </div>

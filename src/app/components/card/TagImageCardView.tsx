@@ -1,35 +1,66 @@
+import { Size, TagImageCardViewProps } from '@/types/types';
 import Image from 'next/image';
-import React from 'react';
-
-interface TagImageCardViewProps {
-  tag: string;
-  imageSrc: string;
-  description: React.ReactNode; // description을 React 요소로 받음
-}
+import React, { useEffect, useState } from 'react';
 
 export const TagImageCardView: React.FC<TagImageCardViewProps> = ({
   tag,
   imageSrc,
+  mobileImageSrc,
   description,
+  size,
 }) => {
+  const [currentImageSrc, setCurrentImageSrc] = useState(imageSrc);
+  const updateImageSrc = () => {
+    if (mobileImageSrc && window.innerWidth < 768) {
+      return setCurrentImageSrc(mobileImageSrc);
+      //mobile환경에서도 Pc와 동일한 리소스 사용하는 경우도 있음.
+    }
+    return setCurrentImageSrc(imageSrc);
+  };
+  useEffect(() => {
+    //초기화
+    updateImageSrc();
+    //화면크기 변경 감지
+    window.addEventListener('resize', updateImageSrc);
+
+    // 컴포넌트 언마운트시 제거
+    return () => {
+      window.removeEventListener('resize', updateImageSrc);
+    };
+  }, [imageSrc, mobileImageSrc]);
+  const isSmall = size === Size.Small;
   return (
-    <div className='container w-full relative h-[360px] md:h-[522px] border-b border-gray-200 bg-gray-50 p-6 rounded-lg shadow-md max-w-sm mx-auto flex flex-col justify-center items-start'>
+    <div
+      className={`w-full  ${
+        isSmall ? 'max-w-[25rem]' : 'max-w-[41rem] '
+      } container w-full relative min-h-[360px] max-h-[50rem] md:h-[522px] border-b border-gray-200 bg-gray-50 p-6 rounded-lg shadow-md max-w-sm flex flex-col justify-start items-start gap-8`}
+    >
       {/* 태그 아이콘 */}
       <div className='text-sm text-gray-700 font-semibold bg-gray-200 rounded-full px-3 py-1 inline-block mb-4'>
         {tag}
       </div>
       {/* 투명 배경 이미지*/}
-      <div className='w-full min-w-full max-h-20 flex-1 mt-auto mb-auto relative'>
+      <div
+        className={`w-full flex-1 max-h-[45rem] flex justify-center items-center`}
+      >
         <Image
-          layout='fill'
+          layout='relative'
           objectFit='contain'
-          src={imageSrc}
+          width={isSmall ? 195 : 551}
+          height={isSmall ? 84 : 220}
+          src={currentImageSrc}
           alt={tag}
-          className='absolute top-0 left-0 w-full h-full object-contain bg-transparent'
+          className={`w-full${
+            isSmall
+              ? 'max-w-[6rem] max-h-[4.5rem] md:max-w-[195px] md:max-h-[84px]'
+              : 'max-w-[18rem] md:max-w-[650px]'
+          }   object-contain bg-transparent`}
         ></Image>
       </div>
       {/* 설명글 - 볼드체 포함 */}
-      <div className=' mt-10  text-gray-700 text-sm leading-relaxed'>
+      <div
+        className={`   text-gray-700 text-sm tracking-[-1px] leading-[21px] md:leading-relaxed md:tracking-normal`}
+      >
         {description}
       </div>
     </div>
