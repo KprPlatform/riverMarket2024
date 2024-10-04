@@ -32,8 +32,8 @@ export const TagImageCardView: React.FC<TagImageCardViewProps> = ({
   return (
     <div
       className={`w-full  ${
-        isSmall ? 'max-w-[25rem]' : 'max-w-[41rem] '
-      } container w-full relative min-h-[360px] max-h-[50rem] md:h-[522px] border-b border-gray-200 bg-gray-50 p-6 rounded-lg shadow-md max-w-sm flex flex-col justify-start items-start gap-8`}
+        isSmall ? 'md:max-w-[21%]' : 'md:max-w-[38%] '
+      } w-full relative min-h-[360px] max-h-[50rem] md:h-[522px] border-b border-gray-200 bg-gray-50 p-6 rounded-lg shadow-md  flex flex-col justify-start items-start gap-8`}
     >
       {/* 태그 아이콘 */}
       <div className='text-sm text-gray-700 font-semibold bg-gray-200 rounded-full px-3 py-1 inline-block mb-4'>

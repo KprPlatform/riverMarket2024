@@ -43,7 +43,7 @@ export const StorySection = () => {
   ];
 
   return (
-    <div className='container mx-auto px-4 mt-32 md:mt-48'>
+    <div className='px-4 mt-32 md:mt-48'>
       <Title title='리버 스토리' />
       {/* 모바일 - 슬라이드로 노출 */}
       <div className='block md:hidden '>
@@ -62,7 +62,7 @@ export const StorySection = () => {
         </Swiper>
       </div>
       {/* PC - 그리드로 노출 */}
-      <div className='hidden md:grid grid-flow-row grid-cols-1 md:grid-cols-3 gap-6'>
+      <div className='w-full hidden md:grid grid-flow-row grid-cols-1 md:grid-cols-3 gap-6'>
         {cards.map((card, idx) => (
           <ImageCardView
             key={idx}

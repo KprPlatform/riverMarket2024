@@ -5,6 +5,7 @@ import { Header } from './components/Header';
 import { IntroSection } from './components/IntroSection';
 import { StorySection } from './components/StorySection';
 import CiSection from './components/CiSection';
+import { VisionSection } from './components/VisionSection';
 
 export default function Home() {
   const aboutRef = useRef<HTMLDivElement>(null);
@@ -22,7 +23,7 @@ export default function Home() {
         visionRef={visionRef}
         offlineRef={offlineRef}
       />
-      <main className='w-full px-[1%] md:px-32'>
+      <main className='w-full flex flex-col'>
         <section ref={aboutRef}>
           <IntroSection />
         </section>
@@ -32,7 +33,9 @@ export default function Home() {
         <section ref={ciRef}>
           <CiSection />
         </section>
-        <section ref={visionRef}></section>
+        <section className='mt-32 md:mt-48  bg-[#F7F7F7] pr-0' ref={visionRef}>
+          <VisionSection />
+        </section>
         <section ref={offlineRef}></section>
       </main>
       <footer className='row-start-3 flex gap-6 flex-wrap items-center justify-center'>

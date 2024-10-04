@@ -54,9 +54,9 @@ const CiSection = () => {
     },
   ];
   return (
-    <div className='container mx-auto px-4 mt-32 md:mt-48'>
+    <div className='px-4 mt-32 md:mt-48'>
       <Title title='리버 CI' />
-      <div className='flex flex-wrap justify-center items-center gap-6'>
+      <div className='flex flex-wrap justify-center md:justify-between items-center gap-6'>
         {cards.map((card, idx) => (
           <TagImageCardView
             key={idx}

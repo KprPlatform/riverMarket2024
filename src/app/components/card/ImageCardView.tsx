@@ -15,7 +15,7 @@ export const ImageCardView: React.FC<ImageCardViewProps> = ({
   content,
 }) => {
   return (
-    <div className='max-w-sm rounded overflow-hidden shadow-md border-b border-gray-200 m-1'>
+    <div className=' rounded overflow-hidden shadow-md border-b border-gray-200 m-1'>
       {/* 이미지 영역 */}
       <Image
         className='w-full'
@@ -31,7 +31,7 @@ export const ImageCardView: React.FC<ImageCardViewProps> = ({
         <div className='font-bold text-xl mb-2'>{title}</div>
 
         {/* 본문 */}
-        <p className='text-gray-700 text-base'>
+        <p className='text-black text-sm tracking-[-0.42px] leading-[21px]'>
           {Array.isArray(content)
             ? content.map((line, index) => (
                 <React.Fragment key={index}>
