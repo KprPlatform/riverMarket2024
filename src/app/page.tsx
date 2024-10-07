@@ -7,6 +7,7 @@ import { StorySection } from './components/StorySection';
 import CiSection from './components/CiSection';
 import { VisionSection } from './components/VisionSection';
 import { OfflineSection } from './OfflineSection';
+import Footer from './components/Footer';
 
 export default function Home() {
   const aboutRef = useRef<HTMLDivElement>(null);
@@ -42,7 +43,7 @@ export default function Home() {
         </section>
       </main>
       <footer className='row-start-3 flex gap-6 flex-wrap items-center justify-center'>
-        footer 영역
+        <Footer />
       </footer>
     </div>
   );
