@@ -2,14 +2,14 @@ import { ImageCardViewProps } from '@/types/types';
 import Image from 'next/image';
 import React from 'react';
 
-export const ImageCardView: React.FC<ImageCardViewProps> = ({
+export const ImageGridView: React.FC<ImageCardViewProps> = ({
   imageSrc,
   title,
   description,
   content,
 }) => {
   return (
-    <div className='max-w-96 rounded overflow-hidden shadow-md border-b border-gray-200 m-1'>
+    <div className='overflow-hidden'>
       {/* 이미지 영역 */}
       <Image
         className='w-full'
@@ -20,7 +20,7 @@ export const ImageCardView: React.FC<ImageCardViewProps> = ({
       />
 
       {/* 하단 내용 */}
-      <div className='px-6 py-4'>
+      <div className='py-4'>
         {/* 제목 */}
         <div className='font-bold text-xl mb-2'>{title}</div>
 

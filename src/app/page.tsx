@@ -6,6 +6,7 @@ import { IntroSection } from './components/IntroSection';
 import { StorySection } from './components/StorySection';
 import CiSection from './components/CiSection';
 import { VisionSection } from './components/VisionSection';
+import { OfflineSection } from './OfflineSection';
 
 export default function Home() {
   const aboutRef = useRef<HTMLDivElement>(null);
@@ -36,7 +37,9 @@ export default function Home() {
         <section className='mt-32 md:mt-48  bg-[#F7F7F7] pr-0' ref={visionRef}>
           <VisionSection />
         </section>
-        <section ref={offlineRef}></section>
+        <section ref={offlineRef}>
+          <OfflineSection />
+        </section>
       </main>
       <footer className='row-start-3 flex gap-6 flex-wrap items-center justify-center'>
         footer 영역

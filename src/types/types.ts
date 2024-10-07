@@ -1,4 +1,11 @@
 // src/types/types.ts
+export interface ImageCardViewProps {
+  imageSrc: string;
+  title: string;
+  content: React.ReactNode;
+  description?: React.ReactNode;
+}
+
 export enum Size {
   Small = 'small',
   Large = 'large',
