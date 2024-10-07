@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import Title from './text/Title';
 import TagCardView from './card/TagCardView';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Scrollbar } from 'swiper/modules';
+import { styleText } from 'util';
 
 export const VisionSection = () => {
   const [isMobile, setIsMobile] = useState(true);
@@ -67,7 +69,7 @@ export const VisionSection = () => {
     },
   ];
   return (
-    <div className='pl-4 py-24 md:py-40 flex flex-col md:flex-row justify-between items-start'>
+    <div className='pl-4 pr-4 md:pr-0 py-24 md:py-40 flex flex-col md:flex-row justify-between items-start'>
       {/* <div className='flex justify-between items-start'> */}
       <div className='w-fit mb-8 md:mb-0'>
         <Title title='비전과 가치' />
@@ -89,7 +91,13 @@ export const VisionSection = () => {
         </div>
       </div>
       <div className='w-full md:w-2/3'>
-        <Swiper slidesPerView={isMobile ? 1 : 2.5} spaceBetween={10}>
+        <Swiper
+          className='vision-swiper-container'
+          slidesPerView={isMobile ? 1 : 2.5}
+          spaceBetween={10}
+          scrollbar
+          modules={[Scrollbar]}
+        >
           {cards.map((card, idx) => (
             <SwiperSlide key={idx} className=' md:w-[23.125%] max-w-[444px]'>
               <TagCardView

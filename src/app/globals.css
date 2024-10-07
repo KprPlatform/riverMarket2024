@@ -21,6 +21,10 @@ body {
 }
 section {
 }
+
+.vision-swiper-container {
+  padding-bottom: 35px !important;
+}
 @media (min-width: 768px) {
   section {
     /*공통적용 px-[1%] */
@@ -29,6 +33,9 @@ section {
   }
   section .right-full-width {
     padding-right: none !important;
+  }
+  .vision-swiper-container > .swiper-scrollbar {
+    display: none;
   }
 }
 
