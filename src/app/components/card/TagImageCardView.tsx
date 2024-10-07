@@ -11,7 +11,15 @@ export const TagImageCardView: React.FC<TagImageCardViewProps> = ({
 }) => {
   const [currentImageSrc, setCurrentImageSrc] = useState(imageSrc);
   const updateImageSrc = () => {
-    if (mobileImageSrc && window.innerWidth < 768) {
+    const userAgent = navigator.userAgent.toLowerCase();
+    const isMobileDevice =
+      /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(
+        userAgent
+      );
+
+    // 모바일 디바이스이거나 창 크기가 768px 미만일 때 모바일로 간주
+
+    if (mobileImageSrc && (isMobileDevice || window.innerWidth < 768)) {
       return setCurrentImageSrc(mobileImageSrc);
       //mobile환경에서도 Pc와 동일한 리소스 사용하는 경우도 있음.
     }

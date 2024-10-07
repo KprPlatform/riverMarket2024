@@ -15,8 +15,8 @@ export const ImageGridView: React.FC<ImageCardViewProps> = ({
         className='w-full'
         src={imageSrc}
         alt={title}
-        width={520}
-        height={379}
+        width={383}
+        height={279}
       />
 
       {/* 하단 내용 */}

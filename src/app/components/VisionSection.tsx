@@ -4,21 +4,24 @@ import Title from './text/Title';
 import TagCardView from './card/TagCardView';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Scrollbar } from 'swiper/modules';
-import { styleText } from 'util';
 
 export const VisionSection = () => {
   const [isMobile, setIsMobile] = useState(true);
   const updateDeviceWidth = () => {
-    if (window.innerWidth < 768) {
-      return setIsMobile(true);
-    }
-    return setIsMobile(false);
+    const userAgent = navigator.userAgent.toLowerCase();
+    const isMobileDevice =
+      /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(
+        userAgent
+      );
+
+    // 모바일 디바이스이거나 창 크기가 768px 미만일 때 모바일로 간주
+    setIsMobile(isMobileDevice || window.innerWidth < 768);
   };
 
   useEffect(() => {
     updateDeviceWidth();
     window.addEventListener('resize', updateDeviceWidth);
-
+    console.log('isMobile', isMobile, window.innerWidth);
     return () => {
       window.removeEventListener('resize', updateDeviceWidth);
     };

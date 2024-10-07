@@ -2,7 +2,6 @@ import React from 'react';
 import { ImageCardView } from './card/ImageCardView';
 import Title from './text/Title';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/swiper-bundle.css';
 import { ImageCardViewProps } from '@/types/types';
 export const StorySection = () => {
   const cards: ImageCardViewProps[] = [
@@ -72,7 +71,7 @@ export const StorySection = () => {
       <Title title='리버 스토리' />
       {/* 모바일 - 슬라이드로 노출 */}
       <div className='block md:hidden '>
-        <Swiper slidesPerView={1} spaceBetween={20} autoplay loop>
+        <Swiper slidesPerView={1} spaceBetween={20} loop>
           {cards.map((card, idx) => (
             <SwiperSlide key={idx}>
               <ImageCardView

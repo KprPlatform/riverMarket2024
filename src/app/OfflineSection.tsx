@@ -187,8 +187,8 @@ export const OfflineSection = () => {
     <div className='px-4 mt-32 md:mt-48'>
       <Title title='모든 리버마켓' />
       {/* 모바일 - 슬라이드로 노출 */}
-      <div className='block md:hidden w-fit mb-8 md:mb-0'>
-        <Swiper slidesPerView={1}>
+      <div className='block md:hidden mb-8 md:mb-0'>
+        <Swiper slidesPerView={1} spaceBetween={20} loop>
           {cards.map((card, idx) => (
             <SwiperSlide key={idx}>
               <ImageCardView
@@ -202,7 +202,7 @@ export const OfflineSection = () => {
         </Swiper>
       </div>
       {/* PC - 그리드로 노출 */}
-      <div className='w-full hidden md:grid grid-flow-row grid-cols-4 gap-6'>
+      <div className='w-full block hidden md:grid grid-flow-row grid-cols-4 gap-6'>
         {cards.map((card, idx) => (
           <ImageGridView
             key={idx}

@@ -9,7 +9,7 @@ export const ImageCardView: React.FC<ImageCardViewProps> = ({
   content,
 }) => {
   return (
-    <div className='max-w-96 rounded overflow-hidden shadow-md border-b border-gray-200 m-1'>
+    <div className='max-w-96 h-[32rem] rounded overflow-hidden shadow-md border-b border-gray-200 m-1'>
       {/* 이미지 영역 */}
       <Image
         className='w-full'
@@ -30,7 +30,7 @@ export const ImageCardView: React.FC<ImageCardViewProps> = ({
         </p>
         {/* 선택적 디스크립션 */}
         {description && (
-          <p className='text-gray-600 text-sm mt-2 tracking-[-0.06px] leading-7'>
+          <p className='text-gray-600 text-sm mt-2 tracking-[-0.06px] leading-[18px]'>
             {description}
           </p>
         )}

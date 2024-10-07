@@ -14,7 +14,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className='antialiased max-w-fit min-w-full'>{children}</body>
+      <body
+        className='antialiased max-w-fit min-w-full'
+        suppressHydrationWarning={true}
+      >
+        {children}
+      </body>
     </html>
   );
 }
