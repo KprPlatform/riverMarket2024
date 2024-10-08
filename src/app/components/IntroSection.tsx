@@ -1,9 +1,23 @@
 import Image from 'next/image';
 import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { IntroBannerItem } from './banner/IntroBannerItem';
+import { Autoplay } from 'swiper/modules';
 
 export const IntroSection = ({}): JSX.Element => {
   const chatBubbleImgUrl = '/images/intro_chat_bubble.png'; //'/images/intro_chat_bubble.svg';
-
+  const bannerImages: string[] = [
+    '/images/intro_banner/00_intro_banner_01.png',
+    '/images/intro_banner/00_intro_banner_02.png',
+    '/images/intro_banner/00_intro_banner_03.png',
+    '/images/intro_banner/00_intro_banner_04.png',
+    '/images/intro_banner/00_intro_banner_05.png',
+    '/images/intro_banner/00_intro_banner_06.png',
+    '/images/intro_banner/00_intro_banner_07.png',
+    '/images/intro_banner/00_intro_banner_08.png',
+    '/images/intro_banner/00_intro_banner_09.png',
+    '/images/intro_banner/00_intro_banner_10.png',
+  ];
   return (
     <div className='w-full  bg-white'>
       <div className='w-full flex flex-col md:flex-row md:justify-between p-4 gap-4'>
@@ -92,43 +106,26 @@ export const IntroSection = ({}): JSX.Element => {
       <div>
         <img src='images/00_tmp_benner.jpg'></img>
       </div>
-      {/* <div className=' w-[1920px] h-[512px] top-[690px] left-[140px]'>
-        <img
-          className=' w-60 h-[432px] top-0 left-[560px]'
-          alt='Image'
-          src='/images/image-17909.png'
-        />
-        <img
-          className=' w-60 h-[432px] top-20 left-[280px]'
-          alt='Image'
-          src='/images/image-17910.png'
-        />
-        <img
-          className=' w-60 h-[432px] top-20 left-[840px]'
-          alt='Image'
-          src='/images/image-17911.png'
-        />
-        <img
-          className=' w-60 h-[432px] top-0 left-[1120px] object-cover'
-          alt='Image'
-          src='/images/image-17912.png'
-        />
-        <img
-          className=' w-60 h-[432px] top-20 left-[1400px]'
-          alt='Image'
-          src='/images/image-17913.png'
-        />
-        <img
-          className=' w-60 h-[432px] top-0 left-0'
-          alt='Image'
-          src='/images/image-17914.png'
-        />
-        <img
-          className=' w-[100px] h-[432px] top-0 left-[1680px]'
-          alt='Image'
-          src='/images/image-17914-1.png'
-        />
-      </div> */}
+      {/* 작업중인 배너 - 애니메이션 일단 제외 */}
+
+      <Swiper
+        spaceBetween={10}
+        freeMode
+        speed={11000}
+        slidesPerView={6.2}
+        autoplay={{
+          delay: 0.05,
+          disableOnInteraction: false,
+        }}
+        modules={[Autoplay]}
+        loop
+      >
+        {bannerImages.map((imgSrc, idx) => (
+          <SwiperSlide key={idx}>
+            <IntroBannerItem idx={idx} imgSrc={imgSrc} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </div>
   );
 };
