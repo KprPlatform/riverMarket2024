@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useCallback, useRef } from 'react';
 import { ImageCardView } from './card/ImageCardView';
 import Title from './text/Title';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperRef, SwiperSlide } from 'swiper/react';
 import { ImageCardViewProps } from '@/types/types';
+
 export const StorySection = () => {
+  const sliderRef = useRef<SwiperRef>(null);
+
+  const handlePrev = useCallback(() => {
+    if (!sliderRef.current) return;
+    sliderRef.current.swiper.slidePrev();
+  }, []);
+
+  const handleNext = useCallback(() => {
+    if (!sliderRef.current) return;
+    sliderRef.current.swiper.slideNext();
+  }, []);
   const cards: ImageCardViewProps[] = [
     {
       imageSrc: '/images/01_story_01.png',
@@ -71,7 +83,7 @@ export const StorySection = () => {
       <Title title='리버 스토리' />
       {/* 모바일 - 슬라이드로 노출 */}
       <div className='block md:hidden '>
-        <Swiper slidesPerView={1} spaceBetween={20} loop>
+        <Swiper ref={sliderRef} slidesPerView={1} spaceBetween={20} loop>
           {cards.map((card, idx) => (
             <SwiperSlide key={idx}>
               <ImageCardView
@@ -84,6 +96,15 @@ export const StorySection = () => {
             </SwiperSlide>
           ))}
         </Swiper>
+        {/* 커스텀 Prev/Next 버튼 */}
+        <div className='flex mt-6 justify-start items-center gap-2'>
+          <div onClick={handlePrev} className='prev-button cursor-pointer z-10'>
+            <img src='/images/slide_btn/prev_off.png' alt='Prev' />
+          </div>
+          <div onClick={handleNext} className='next-button cursor-pointer z-10'>
+            <img src='/images/slide_btn/next_off.png' alt='Next' />
+          </div>
+        </div>
       </div>
       {/* PC - 그리드로 노출 */}
       <div className='w-full hidden md:grid grid-flow-row grid-cols-1 md:grid-cols-3 gap-6'>

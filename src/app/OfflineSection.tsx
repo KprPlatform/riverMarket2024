@@ -1,11 +1,22 @@
-import React from 'react';
+import React, { useCallback, useRef } from 'react';
 import Title from './components/text/Title';
 import { ImageCardView } from './components/card/ImageCardView';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperRef, SwiperSlide } from 'swiper/react';
 import { ImageCardViewProps } from '@/types/types';
 import { ImageGridView } from './components/card/ImageGridView';
 
 export const OfflineSection = () => {
+  const sliderRef = useRef<SwiperRef>(null);
+
+  const handlePrev = useCallback(() => {
+    if (!sliderRef.current) return;
+    sliderRef.current.swiper.slidePrev();
+  }, []);
+
+  const handleNext = useCallback(() => {
+    if (!sliderRef.current) return;
+    sliderRef.current.swiper.slideNext();
+  }, []);
   const cards: ImageCardViewProps[] = [
     {
       imageSrc: '/images/04_offline_01.png',
@@ -188,7 +199,7 @@ export const OfflineSection = () => {
       <Title title='모든 리버마켓' />
       {/* 모바일 - 슬라이드로 노출 */}
       <div className='block md:hidden mb-8 md:mb-0'>
-        <Swiper slidesPerView={1} spaceBetween={20} loop>
+        <Swiper ref={sliderRef} slidesPerView={1} spaceBetween={20} loop>
           {cards.map((card, idx) => (
             <SwiperSlide key={idx}>
               <ImageCardView
@@ -200,9 +211,18 @@ export const OfflineSection = () => {
             </SwiperSlide>
           ))}
         </Swiper>
+        {/* 커스텀 Prev/Next 버튼 */}
+        <div className='flex mt-6 justify-start items-center gap-2'>
+          <div onClick={handlePrev} className='prev-button cursor-pointer z-10'>
+            <img src='/images/slide_btn/prev_off.png' alt='Prev' />
+          </div>
+          <div onClick={handleNext} className='next-button cursor-pointer z-10'>
+            <img src='/images/slide_btn/next_off.png' alt='Next' />
+          </div>
+        </div>
       </div>
       {/* PC - 그리드로 노출 */}
-      <div className='w-full block hidden md:grid grid-flow-row grid-cols-4 gap-6'>
+      <div className='w-full hidden md:grid grid-flow-row grid-cols-4 gap-6'>
         {cards.map((card, idx) => (
           <ImageGridView
             key={idx}

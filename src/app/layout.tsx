@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import 'swiper/swiper-bundle.css';
+import 'swiper/css/navigation';
 
 export const metadata: Metadata = {
   title: '리버마켓 스토리',
